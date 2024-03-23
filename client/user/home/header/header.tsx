@@ -1,30 +1,49 @@
+'use client';
+
 import { GlobalSearch } from '../elements/global-search';
-import Image from 'next/image';
-import { User } from 'lucide-react';
+import { Heart, ShoppingCart, User } from 'lucide-react';
 import { Container, Logo } from '@user/shared';
+import { useRouter } from 'next/navigation';
+
+const USERICONS = [
+  {
+    Icon: <Heart />,
+    label: 'WishList',
+    href: '/wishlist'
+  },
+  {
+    Icon: <ShoppingCart />,
+    label: 'Cart',
+    href: '/cart'
+  },
+    {
+    Icon: <User />,
+    label: 'User',
+    href: '/user'
+  },
+];
 
 export function Header() {
-  return (
-    <Container className='flex items-center justify-between'>
+  const router = useRouter();
 
+  return (
+    <Container as='header' className='flex items-center justify-between py-6'>
       <div className='flex items-center gap-20'>
         <Logo />
         <GlobalSearch />
       </div>
 
       <div className='flex items-center gap-4'>
-        <div className='flex items-center gap-1'>
-          <Image alt='cart' height={35} src='/icons/favourite.svg' width={35} />
-          <span className='self-end text-[#7E7E7E]'>Wishlist</span>
-        </div>
-        <div className='flex items-center gap-1'>
-          <Image alt='cart' height={35} src='/icons/cart.svg' width={35} />
-          <span className='self-end text-[#7E7E7E]'>Cart</span>
-        </div>
-        <div className='flex gap-1'>
-          <User className='size-9' />
-          <span className='self-end text-[#7E7E7E]'>Account</span>
-        </div>
+        {USERICONS.map(({ href, Icon, label }) => (
+          <button key={label} className='group flex' type='button' onClick={() => router.push(href)}>
+            <span className='size-7 transition-all group-hover:text-green-500'>
+              {Icon}
+            </span>
+            <span className='self-end text-[#7E7E7E] transition-all group-hover:text-green-500'>
+              {label}
+            </span>
+          </button>
+        ))}
       </div>
     </Container>
   );
