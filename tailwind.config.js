@@ -23,6 +23,12 @@ module.exports = {
         green: {
           500: '#3BB77E',
         },
+        gray: {
+          700: '#253D4E',
+        },
+        orange: {
+          500: '#F59758',
+        },
       },
       keyframes: {
         'accordion-down': {

@@ -1,7 +1,15 @@
+import { CTA, Categories, FeatureProducts, Features, Hero, HowToCreate, OurPicks } from '@user/home';
+
 export default function Home() {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      Hello
+    <main className=''>
+      <Hero />
+      <Categories />
+      <FeatureProducts />
+      <HowToCreate />
+      <Features />
+      <OurPicks />
+      <CTA />
     </main>
   );
 }

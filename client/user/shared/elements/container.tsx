@@ -24,7 +24,7 @@ export function Container<C extends React.ElementType = 'div'>({
   return (
     <Component
       {...otherProps}
-      className={cn('w-full mx-auto max-w-[1150px] md:px-6 max-md:px-4 xl:max-w-[1420px]', className)}
+      className={cn('w-full mx-auto max-w-[1250px] md:px-6 max-md:px-4 xl:max-w-[1420px]', className)}
     >
       {children}
     </Component>
